@@ -1,10 +1,8 @@
 # Lab 4 - Deploying to OpenShift
 
-> Deploying to OpenShift via 'oc' CLI: [video (14:32 mins)](https://youtu.be/4MDfalo2Fg0)
-
 ## Overview
 
-In this lab we will work in the OpenShift Web Console and with the OpenShift CLI. The following image is a simplified overview of the topics of that lab. Have in mind that [OpenShift](https://www.youtube.com/watch?v=5dwMrFxq8sU&feature=youtu.be) is a [Kubernetes](https://www.youtube.com/watch?v=4ht22ReBjno) platform.
+In this lab we will work in the OpenShift Web Console and with the OpenShift `oc` CLI. The following image is a simplified overview of the topics of that lab. Have in mind that [OpenShift](https://www.youtube.com/watch?v=5dwMrFxq8sU&feature=youtu.be) is a [Kubernetes](https://www.youtube.com/watch?v=4ht22ReBjno) platform.
 
 ![overview](images/lab-4-overview.png)
 
@@ -12,7 +10,7 @@ This lab has two parts:
 
 1. Build and save the container image
 
-  * We will create a OpenShift project
+  * We will create an OpenShift project
   * We will define a [build config](https://docs.openshift.com/container-platform/3.9/dev_guide/builds/index.html) for OpenShift
   * We will build with the build Pod inside OpenShift and save container image to the internal [OpenShift container registry](https://docs.openshift.com/container-platform/3.9/install_config/registry/index.html#install-config-registry-overview)
 
@@ -31,17 +29,16 @@ The following gif is an animation of the simplified steps above in a sequence.
 
 ## Step 1: Create an Open Shift project
 
-We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. Let us create one.
+We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. We are working in a shared environment so everybody needs to create a unique project. The easiest way is to use your own name in the form `yourfistname-yourlastname`. 
 
 _Note:_ A [project allows](https://docs.openshift.com/container-platform/3.7/dev_guide/projects.html#overview) a community of users to organize and manage their content in isolation from other communities.
 
 ```
 $ cd ${ROOT_FOLDER}/2-deploying-to-openshift
-$ oc new-project cloud-native-starter
+$ oc new-project '<yourfistname-yourlastname>'
 ```
 
-**Make sure** you are logged on to your OpenShift cluster.
-[See here.](https://github.com/nheidloff/openshift-on-ibm-cloud-workshops/blob/master/2-deploying-to-openshift/documentation/1-prereqs.md#verify-access-to-openshift-on-the-ibm-cloud)
+**Make sure** you are logged in to your OpenShift cluster.
 
 ## Step 2: Build and save the container image in the Open Shift Container Registry
 
@@ -51,13 +48,13 @@ We use these commands to do that:
 1. Defining a new build using 'binary build' and the Docker strategy ([more details](https://docs.openshift.com/container-platform/3.5/dev_guide/builds/build_inputs.html#binary-source) and [oc new-build documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#new-build))
 
 ```
-$ oc new-build --name authors --binary --strategy docker
+$ oc new-build --name authors-bin --binary --strategy docker
 ```
 
 2. Starting the build process on OpenShift with our defined build configuration. ([oc start-build documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#start-build))
 
 ```
-$ oc start-build authors --from-dir=.
+$ oc start-build authors-bin --from-dir=.
 ```
 
 ## Step 3: Verify the build in the OpenShift web console
