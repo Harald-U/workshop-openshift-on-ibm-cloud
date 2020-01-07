@@ -34,7 +34,7 @@ We need an OpenShift project, this is simply put equivalent to a Kubernetes name
 _Note:_ A [project allows](https://docs.openshift.com/container-platform/3.7/dev_guide/projects.html#overview) a community of users to organize and manage their content in isolation from other communities.
 
 ```
-$ cd ${ROOT_FOLDER}/2-deploying-to-openshift
+$ cd ${ROOT_FOLDER}/deploying-to-openshift
 $ oc new-project '<yourfistname-yourlastname>'
 ```
 
@@ -60,7 +60,7 @@ $ oc start-build authors-bin --from-dir=.
 ## Step 3: Verify the build in the OpenShift web console
 
 
-1. Select the 'cloud-native-starter' project in 'My Projects'
+1. Select your project (yourfistname-yourlastname) project in 'My Projects'
 
   ![Select in My Projects the default project](images/os-registry-04.png)
 
@@ -68,7 +68,7 @@ $ oc start-build authors-bin --from-dir=.
 
   ![Open Build in the menu and click Build](images/os-build-01.png)
 
-3. Select 'Last Build' (#1) 
+3. Select 'Last Build' (#1) for 'authors-bin'
 
   ![Select Last Build ](images/os-build-02.png)
 
@@ -80,17 +80,19 @@ $ oc start-build authors-bin --from-dir=.
 
   ![Inspect the **Logs**  ](images/os-build-04.png)
 
-## Step 4: Verify the container image in the Open Shift Container Registry UI
+## Step 4: Verify the container image in Open Shift
 
-1. Select the 'default' project
+1. Select the 'Builds' then 'Images'
 
-2. Expand DEPLOYMENT 'registry-console' in 'Overview' and click on the URL in 'Routes - External Traffic'
+  ![Build -> Images](images/os-registry-05.png)
 
-  ![Expand in Overview the DEPLOYMENT registry-console and click Routes - External Traffic](images/os-registry-05.png)
+2. Click on the Image Stream 'authors-bin'
 
-3. In the container registry you will find the 'authors' image and you can click on the latest label.
+  ![image stream](images/os-registry-06.png)
 
-  ![In the container registry you will find later the authors image](images/os-registry-06.png)
+3. Note the pull name of the image:  
+
+  ![image stream authors-bin](images/os-registry-07.png)
 
 # 2. Apply the deployment.yaml
 

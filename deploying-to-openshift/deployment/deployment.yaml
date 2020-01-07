@@ -1,18 +1,18 @@
 kind: Deployment
 apiVersion: apps/v1beta1
 metadata:
-  name: authors
+  name: authors-bin
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: authors
+        app: authors-bin
         version: v1
     spec:
       containers:
-      - name: authors
-        image: docker-registry.default.svc:5000/cloud-native-starter/authors:latest
+      - name: authors-bin
+        image: docker-registry.default.svc:5000/harald-uebele/authors-bin:latest
         ports:
         - containerPort: 3000
         livenessProbe:

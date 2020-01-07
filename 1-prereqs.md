@@ -21,10 +21,10 @@ For the rest of the labs we will use the (unofficial) **IBM Cloud Shell**:
 5. Click on the Terminal icon next to it
 
 
-Note: You *can* run the the labs locally on your laptop but this approach works only for Mac and Linux. You need to install the following tools:
+Note: You *can* run the the labs locally on your laptop but this approach works only for Mac and Linux. You will need to install the following tools:
 
+- [docker](https://docs.docker.com/install/)
 - [oc](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install#cli_oc)
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 - [curl](https://curl.haxx.se/download.html)
 - Optional: [IBM Cloud CLI](https://cloud.ibm.com/docs/home/tools)
