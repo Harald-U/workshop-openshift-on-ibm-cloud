@@ -79,5 +79,5 @@ $ ROOT_FOLDER=$(pwd)
 ---
 
 
-:star: __Continue with [Lab 4](4-openshift.md)__
+:star: __Continue with [Lab 4 - Deploying to OpenShift](4-openshift.md)__
 

@@ -29,7 +29,7 @@ The following gif is an animation of the simplified steps above in a sequence.
 
 ## Step 1: Create an Open Shift project
 
-We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. We are working in a shared environment so everybody needs to create a unique project. The easiest way is to use your own name in the form `yourfistname-yourlastname`. 
+We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. **We are working in a shared environment so everybody needs to create a unique project.** The easiest way is to use your own name in the form `yourfistname-yourlastname`. 
 
 _Note:_ A [project allows](https://docs.openshift.com/container-platform/3.7/dev_guide/projects.html#overview) a community of users to organize and manage their content in isolation from other communities.
 
@@ -42,8 +42,7 @@ $ oc new-project '<yourfistname-yourlastname>'
 
 ## Step 2: Build and save the container image in the Open Shift Container Registry
 
-Now we want to build and save a container image in the OpenShift Container Registry. 
-We use these commands to do that:
+We want to build and save a container image in the OpenShift Container Registry. We use these commands to do that:
 
 1. Defining a new build using 'binary build' and the Docker strategy ([more details](https://docs.openshift.com/container-platform/3.5/dev_guide/builds/build_inputs.html#binary-source) and [oc new-build documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#new-build))
 
@@ -90,7 +89,7 @@ $ oc start-build authors-bin --from-dir=.
 
   ![image stream](images/os-registry-06.png)
 
-3. Note the pull name of the image:  
+3. Note the 'pull' name of the image:  
 
   ![image stream authors-bin](images/os-registry-07.png)
 
@@ -113,7 +112,7 @@ Definition of `kind` defines this as a `Deployment` configuration.
 kind: Deployment
 apiVersion: apps/v1beta1
 metadata:
-  name: authors
+  name: authors-bin
 ```
 
 Inside the `spec` section we specify an app name and version label.
@@ -124,11 +123,11 @@ spec:
   template:
     metadata:
       labels:
-        app: authors
+        app: authors-bin
         version: v1
 ```
 
-Then we define a `name` for the container and we provide the container `image` location, e.g. where the container can be found in the **Container Registry**. 
+Then we define a `name` for the container and we provide the container `image` location, e.g. where the container can be found in the **Container Registry**. This location is specific for a given project.
 
 The `containerPort` depends on the port definition inside our Dockerfile and in our server.xml.
 
@@ -138,14 +137,14 @@ We have previously talked about the usage of the HealthEndpoint class for our Au
 ```yml
 spec:
       containers:
-      - name: authors
-        image: authors:1
+      - name: authors-bin
+        image: authors-bin:1
         ports:
         - containerPort: 3000
         livenessProbe:
 ```
 
-This is the full [deployment.yaml](../deployment/deployment.yaml) file.
+This is the full [deployment.yaml](../deployment/deployment.yaml) file. Note that you will need to change the 'pull' name of the image location in the 'image:' parameter to the name of your project!
 
 ```yaml
 kind: Deployment
@@ -162,7 +161,7 @@ spec:
     spec:
       containers:
       - name: authors
-        image: docker-registry.default.svc:5000/cloud-native-starter/authors:latest
+        image: docker-registry.default.svc:5000/harald-uebele/authors:latest
         ports:
         - containerPort: 3000
         livenessProbe:
@@ -178,23 +177,31 @@ spec:
 
 ## Step 1: Apply the deployment
 
-1. Ensure you are in the ```{ROOT_FOLDER}/2-deploying-to-openshift/deployment```
+1. Ensure you are in the ```{ROOT_FOLDER}/deploying-to-openshift/deployment```
 
   ```
-  $ cd ${ROOT_FOLDER}/2-deploying-to-openshift/deployment
+  $ cd ${ROOT_FOLDER}/deploying-to-openshift/deployment
   ```
 
-2. Apply the deployment to **OpenShift**
+2. Edit the deployment.yaml file and adjust the "pull" name for the "image" location parameter to the name of your project. In the IBM Cloud Shell you can use `nano` as a simple text editor:
+
+  ```
+  $ nano deployment.yaml
+  ```
+
+  Save and exit the nano editor with Ctl-o and Ctl-x.
+
+3. Apply the deployment to OpenShift
 
   ```
   $ oc apply -f deployment.yaml
   ```
 
-## Step 2: Verify the deployment in **OpenShift**
+## Step 2: Verify the deployment in OpenShift
 
 1. Open your OpenShift Web Console
 
-2. Select the Cloud-Native-Starter project and examine the deployment
+2. Select your project and examine the deployment
 
   ![Select the Cloud-Native-Starter project and examine the deployment](images/os-deployment-01.png)
 
@@ -222,12 +229,12 @@ In the [service.yaml](../deployment/service-os.yaml) we see a selector of the po
 kind: Service
 apiVersion: v1
 metadata:
-  name: authors
+  name: authors-bin
   labels:
-    app: authors
+    app: authors-bin
 spec:
   selector:
-    app: authors
+    app: authors-bin
   ports:
     - port: 3000
       name: http
@@ -246,15 +253,15 @@ spec:
 2. Using oc [expose](https://docs.openshift.com/container-platform/3.6/dev_guide/routes.html) we create a Route to our service in the OpenShift cluster. ([oc expose documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#expose))
 
   ```
-  $ oc expose svc/authors
+  $ oc expose svc/authors-bin
   ```
 
-## Step 2: Test the microservice
+## Step 2: Test the `authors-bin` microservice
 
 1. Execute this command, copy the URL to open the Swagger UI in browser
 
   ```
-  $ echo http://$(oc get route authors -o jsonpath={.spec.host})/openapi/ui/
+  $ echo http://$(oc get route authors-bin -o jsonpath={.spec.host})/openapi/ui/
   $ http://authors-cloud-native-starter.openshift-devadv-eu-wor-160678-0001.us-south.containers.appdomain.cloud/openapi/ui/
   ```
 
@@ -265,7 +272,7 @@ This is the Swagger UI in your browser:
 1. Execute this command to verify the output:
 
   ```
-  $ curl -X GET "http://$(oc get route authors -o jsonpath={.spec.host})/api/v1/getauthor?name=Niklas%20Heidloff" -H "accept: application/json"
+  $ curl -X GET "http://$(oc get route authors-bin -o jsonpath={.spec.host})/api/v1/getauthor?name=Niklas%20Heidloff" -H "accept: application/json"
   ```
 
 2. Output
@@ -278,7 +285,7 @@ This is the Swagger UI in your browser:
 
 1. Open your OpenShift Web Console
 
-2. Select the Cloud-Native-Starter project
+2. Select your project
 
   ![Service](images/os-service-01.png)
 
@@ -286,7 +293,7 @@ This is the Swagger UI in your browser:
 
   ![Service](images/os-service-02.png)
 
-4. Click on 'authors'
+4. Click on 'authors-bin'
 
 5. Examine the traffic and remember the simplified overview picture.
 
