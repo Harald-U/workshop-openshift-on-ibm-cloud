@@ -16,9 +16,8 @@ There are [various ways to deploy applications to OpenShift](http://heidloff.net
 
 ## Labs
 
-This workshop has 8 labs. It should take between 60 and 90 minutues to complete the workshop.
+This workshop has 8 labs. It should take between 60 and 90 minutues to complete the workshop. Here as an [Overview video (1:41 mins)](https://youtu.be/8361HGR_O_s) on Youtube.
 
-0. [Overview video (1:41 mins)](https://youtu.be/8361HGR_O_s)
 1. [Installing prerequisites](1-prereqs.md)
 2. [Optional: Running the Java microservice locally](2-docker.md)
 3. [Optional: Understanding the Java implementation](3-java.md)
