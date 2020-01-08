@@ -2,7 +2,7 @@
 
 > Deploying to OpenShift via 'oc' CLI: [video (14:32 mins)](https://youtu.be/4MDfalo2Fg0)
 
-## Overview
+## Overview / Background
 
 In this lab we will work in the OpenShift Web Console and with the OpenShift `oc` CLI. The following image is a simplified overview of the topics of that lab. Have in mind that [OpenShift](https://www.youtube.com/watch?v=5dwMrFxq8sU&feature=youtu.be) is a [Kubernetes](https://www.youtube.com/watch?v=4ht22ReBjno) platform.
 
@@ -31,69 +31,71 @@ The following gif is an animation of the simplified steps above in a sequence.
 
 ## Step 1: Create an Open Shift project
 
-We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. **We are working in a shared environment so everybody needs to create a unique project.** The easiest way is to use your own name in the form `yourfistname-yourlastname`. 
+We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. You will be using this project throughout the whole workshop. **We are working in a shared environment so everybody needs to create a unique project for themselves.** The easiest way is to use your own name in the form `yourfistname-yourlastname`, e.g. my project that you can see in many screenshots is 'harald-uebele'. 
 
 _Note:_ A [project allows](https://docs.openshift.com/container-platform/3.7/dev_guide/projects.html#overview) a community of users to organize and manage their content in isolation from other communities.
 
 ```
 $ cd ${ROOT_FOLDER}/deploying-to-openshift
-$ oc new-project '<yourfistname-yourlastname>'
+$ oc new-project <yourfistname-yourlastname>
 ```
-
-**Make sure** you are logged in to your OpenShift cluster.
 
 ## Step 2: Build and save the container image in the Open Shift Container Registry
 
-We want to build and save a container image in the OpenShift Container Registry. We use these commands to do that:
+We want to build and save a container image in the OpenShift Container Registry. 
 
-1. Defining a new build using 'binary build' and the Docker strategy ([more details](https://docs.openshift.com/container-platform/3.5/dev_guide/builds/build_inputs.html#binary-source) and [oc new-build documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#new-build))
+1. Define a new build as 'binary build' using the Docker strategy with name 'authors-bin' ([more details](https://docs.openshift.com/container-platform/3.5/dev_guide/builds/build_inputs.html#binary-source) and [oc new-build documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#new-build)). Result is a 'build config' on OpenShift.
 
 ```
 $ oc new-build --name authors-bin --binary --strategy docker
 ```
 
-2. Starting the build process on OpenShift with our defined build configuration. ([oc start-build documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#start-build))
+2. Starting the build process on OpenShift with our previously created build configuration. ([oc start-build documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#start-build)). This will result in the creation of a build pod which will end in status complete once the build = creation of a container image is successful.
 
 ```
 $ oc start-build authors-bin --from-dir=.
 ```
+
+  Notice the period '.' at the end of the command. It means the build is using the current directory (of your IBM Cloud Shell session).
 
 ## Step 3: Verify the build in the OpenShift web console
 
 
 1. Select your project (yourfistname-yourlastname) project in 'My Projects'
 
-  ![Select in My Projects the default project](images/os-registry-04.png)
+   ![Select in My Projects the default project](images/os-registry-04.png)
 
 2. Open 'Builds' in the menu and then click 'Builds'
 
-  ![Open Build in the menu and click Build](images/os-build-01.png)
+   ![Open Build in the menu and click Build](images/os-build-01.png)
 
-3. Select 'Last Build' (#1) for 'authors-bin'
+3. Select 'Last Build' (#1) for 'authors-bin', this is the build pod
 
-  ![Select Last Build ](images/os-build-02.png)
+   ![Select Last Build ](images/os-build-02.png)
 
-4. Open 'Logs' 
+4. Open 'Logs'. 
 
-  ![Open Logs ](images/os-build-03.png)
+   ![Open Logs ](images/os-build-03.png)
 
-5. Inspect the logs 
+5. Inspect the logs. This is the log of the build-pod which contains everything that happened during creation of the container image. 
 
-  ![Inspect the **Logs**  ](images/os-build-04.png)
+   ![Inspect the **Logs**  ](images/os-build-04.png)
+
+   'Push successful' means, the build has completed without errors and the resulting image has been loaded into the OpenShift internal image repository.
 
 ## Step 4: Verify the container image in Open Shift
 
 1. Select the 'Builds' then 'Images'
 
-  ![Build -> Images](images/os-registry-05.png)
+   ![Build -> Images](images/os-registry-05.png)
 
 2. Click on the Image Stream 'authors-bin'
 
-  ![image stream](images/os-registry-06.png)
+   ![image stream](images/os-registry-06.png)
 
 3. Note the 'pull' name of the image:  
 
-  ![image stream authors-bin](images/os-registry-07.png)
+   ![image stream authors-bin](images/os-registry-07.png)
 
 # 2. Apply the deployment.yaml
 
@@ -181,24 +183,24 @@ spec:
 
 1. Ensure you are in the ```{ROOT_FOLDER}/deploying-to-openshift/deployment```
 
-  ```
-  $ cd ${ROOT_FOLDER}/deploying-to-openshift/deployment
-  ```
+   ```
+   $ cd ${ROOT_FOLDER}/deploying-to-openshift/deployment
+   ```
 
 2. Make a copy of 'template.deployment.yaml', name it 'deployment.yaml' file and adjust the "pull" name for the "image" location parameter to the name of your project. In the IBM Cloud Shell you can use `nano` as a simple text editor:
 
-  ```
-  $ cp template.deployment.yaml deployment.yaml
-  $ nano deployment.yaml
-  ```
+    ```
+    $ cp template.deployment.yaml deployment.yaml
+    $ nano deployment.yaml
+    ```
 
-  Save and exit the nano editor with Ctl-o and Ctl-x.
+   Save and exit the nano editor with Ctl-o and Ctl-x.
 
 3. Apply the deployment to OpenShift
 
-  ```
-  $ oc apply -f deployment.yaml
-  ```
+    ```
+    $ oc apply -f deployment.yaml
+    ```
 
 ## Step 2: Verify the deployment in OpenShift
 
@@ -206,15 +208,15 @@ spec:
 
 2. Select your project and examine the deployment
 
-  ![Select the Cloud-Native-Starter project and examine the deployment](images/os-deployment-01.png)
+   ![Select the Cloud-Native-Starter project and examine the deployment](images/os-deployment-01.png)
 
 3. Click on **#1** to open the details of the deployment
 
-  ![Click on #1 to open the details of the deployment](images/os-deployment-02.png)
+   ![Click on #1 to open the details of the deployment](images/os-deployment-02.png)
 
 4. In the details you find the 'health check' we defined before
 
-  ![In the details you find the health check we defined before](images/os-deployment-03.png)
+   ![In the details you find the health check we defined before](images/os-deployment-03.png)
 
 # 3. Apply the service.yaml
 
@@ -249,40 +251,44 @@ spec:
 
 1. Apply the service to OpenShift
 
-  ```
-  $ oc apply -f service.yaml
-  ```
+    ```
+    $ oc apply -f service.yaml
+    ```
 
 2. Using oc [expose](https://docs.openshift.com/container-platform/3.6/dev_guide/routes.html) we create a Route to our service in the OpenShift cluster. ([oc expose documentation](https://docs.openshift.com/container-platform/3.9/cli_reference/basic_cli_operations.html#expose))
 
-  ```
-  $ oc expose svc/authors-bin
-  ```
+    ```
+    $ oc expose svc/authors-bin
+    ```
 
 ## Step 2: Test the `authors-bin` microservice
 
 1. Execute this command, copy the URL to open the Swagger UI in browser
 
-  ```
-  $ echo http://$(oc get route authors-bin -o jsonpath={.spec.host})/openapi/ui/
-  $ http://authors-cloud-native-starter.openshift-devadv-eu-wor-160678-0001.us-south.containers.appdomain.cloud/openapi/ui/
-  ```
+    ```
+    $ echo http://$(oc get route authors-bin -o jsonpath={.spec.host})/openapi/ui/
+    ```
 
-This is the Swagger UI in your browser:
+    Result:
+    ```
+    $ http://authors-cloud-native-starter.openshift-devadv-eu-wor-160678-0001.us-south.containers.appdomain.cloud/openapi/ui/
+    ```
 
-  ![Swagger UI](images/authors-swagger-ui.png)
+    This is the Swagger UI in your browser:
+
+   ![Swagger UI](images/authors-swagger-ui.png)
 
 1. Execute this command to verify the output:
 
-  ```
-  $ curl -X GET "http://$(oc get route authors-bin -o jsonpath={.spec.host})/api/v1/getauthor?name=Niklas%20Heidloff" -H "accept: application/json"
-  ```
+    ```
+    $ curl -X GET "http://$(oc get route authors-bin -o jsonpath={.spec.host})/api/v1/getauthor?name=Niklas%20Heidloff" -H "accept: application/json"
+    ```
 
 2. Output
 
-  ```
-  $ {"name":"Niklas Heidloff","twitter":"https://twitter.com/nheidloff","blog":"http://heidloff.net"}
-  ```
+    ```
+    $ {"name":"Niklas Heidloff","twitter":"https://twitter.com/nheidloff","blog":"http://heidloff.net"}
+    ```
 
 ## Step 3: Inspect the service in OpenShift
 
@@ -290,17 +296,17 @@ This is the Swagger UI in your browser:
 
 2. Select your project
 
-  ![Service](images/os-service-01.png)
+   ![Service](images/os-service-01.png)
 
 3. Chose 'Applications' and then 'Services' 
 
-  ![Service](images/os-service-02.png)
+   ![Service](images/os-service-02.png)
 
 4. Click on 'authors-bin'
 
 5. Examine the traffic and remember the simplified overview picture.
 
-  ![Service](images/os-service-03.png)
+   ![Service](images/os-service-03.png)
 
 ---
 

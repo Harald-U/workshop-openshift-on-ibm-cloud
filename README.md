@@ -16,22 +16,13 @@ There are [various ways to deploy applications to OpenShift](http://heidloff.net
 
 ## Labs
 
-This workshop has 8 labs. It should take between 60 and 90 minutues to complete the workshop. Here as an [Overview video (1:41 mins)](https://youtu.be/8361HGR_O_s) on Youtube.
+This workshop has 7 labs and should take between 60 and 90 minutues to complete. Here is an [Overview video (1:41 mins)](https://youtu.be/8361HGR_O_s) on Youtube.
 
-1. [Installing prerequisites](1-prereqs.md)
-2. [Optional: Running the Java microservice locally](2-docker.md)
-3. [Optional: Understanding the Java implementation](3-java.md)
-4. [Deploying to OpenShift via 'oc' CLI](4-openshift.md)
-5. [Deploying existing images to OpenShift](5-existing-image.md)
-6. [Deployments of code in GitHub repos](6-github.md)
-7. [Source to Image deployments](7-source-to-image.md)
-
-
-The first lab describes how to install all required prerequisites. In the easiest case this is only Docker Desktop and an image with all other tools.
+The first lab describes how to install all required prerequisites. In the easiest case this means accessing the IBM Cloud Shell.
 
 Lab 2 and 3 describe how to develop a microservice with Java EE and Eclipse MicroProfile and are useful if you are interested in programming, hence **they are optional**.
 
-The next four labs explain four different ways to deploy applications to OpenShift with their pros and cons in this specific scenario:
+The next four labs show four different ways to deploy applications to OpenShift with their pros and cons in this specific scenario:
 
 | Option | Dockerfile | yaml Files | Java Build | Docker Build |
 | - | - | - | - | - |
@@ -40,3 +31,12 @@ The next four labs explain four different ways to deploy applications to OpenShi
 | Lab 6: Git Repo | required  | not required | OpenShift | OpenShift |
 | Lab 7: Source to Image | not required | not required | Desktop | OpenShift |
 
+To continue with the workshop follow these steps:
+
+1. [Installing prerequisites](1-prereqs.md)
+2. [Optional: Running the Java microservice locally](2-docker.md)
+3. [Optional: Understanding the Java implementation](3-java.md)
+4. [Deploying to OpenShift via 'oc' CLI](4-openshift.md)
+5. [Deploying existing images to OpenShift](5-existing-image.md)
+6. [Deployments of code in GitHub repos](6-github.md)
+7. [Source to Image deployments](7-source-to-image.md)

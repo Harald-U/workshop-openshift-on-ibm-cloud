@@ -1,7 +1,5 @@
 # Prerequisties
 
-> Installing prerequisites: [video (2:58 mins)](https://youtu.be/c5CtqijWXL4) and [video including windows (4:11 mins)](https://youtu.be/53XccO3NNn8)
-
 ## Overview 
 
 An [IBM Cloud account](https://cloud.ibm.com/registration) is needed. 
@@ -9,11 +7,11 @@ An [IBM Cloud account](https://cloud.ibm.com/registration) is needed.
 We will use a shared [OpenShift on IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster) service on IBM Cloud in this hands-on workshop. You will have been granted access to a pre-configured OpenShift cluster.
 
 
-## Step 1: Tools
+## Tools
 
-In the optional **Java developer labs** 2 and 3 you need a local `docker` and `git` installation.
+For the **optional Java developer labs** 2 and 3 you need a local `docker` and `git` installation.
 
-For the rest of the labs we will use the (unofficial) **IBM Cloud Shell**:
+For the rest of the labs we will use the (unofficial) **IBM Cloud Shell**. To access IBM Cloud Shell:
 
 1. Open [https://workshop.shell.cloud.ibm.com/](https://workshop.shell.cloud.ibm.com/)
 2. Click `Login` in the upper right corner
@@ -22,16 +20,16 @@ For the rest of the labs we will use the (unofficial) **IBM Cloud Shell**:
 5. Click on the Terminal icon next to it
 
 
-Note: You *can* run the the labs locally on your laptop but this approach works only for Mac and Linux. You will need to install the following tools:
+Note: You *can* run the the labs locally on your laptop. You will need to install the following tools:
 
 - [docker](https://docs.docker.com/install/)
 - [oc](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install#cli_oc)
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 - [curl](https://curl.haxx.se/download.html)
-- Optional: [IBM Cloud CLI](https://cloud.ibm.com/docs/home/tools)
+- [maven](https://maven.apache.org/install.html) + JDK
 - Optional: Editor, for example [Visual Studio Code](https://code.visualstudio.com/) 
 
-#### Step 2: Get the code:
+##Get the code
 
 In the IBM Cloud Shell execute the following commands:
 
@@ -41,11 +39,11 @@ $ cd workshop-openshift-on-ibm-cloud
 $ ROOT_FOLDER=$(pwd)
 ```
 
----
+
 
 ## Verify Access to OpenShift on the IBM Cloud
 
-### Step 1: Open the OpenShift console. 
+### Open the OpenShift console. 
 
 1. Logon to the IBM Cloud Dashboard (https://cloud.ibm.com).
 
@@ -63,7 +61,7 @@ $ ROOT_FOLDER=$(pwd)
 
     ![Open the OpenShift web console](images/os-registry-03.png)
 
-### Step 2: Get our access token for the 'oc' CLI. 
+### Get the access token for the 'oc' CLI. 
 
 
 1. From the dropdown menu in the upper right of the page, click 'Copy Login Command'. Paste the copied command into your terminal in the IBM Cloud Shell.
@@ -80,5 +78,5 @@ $ ROOT_FOLDER=$(pwd)
 ---
 
 
-:star: __Continue with [Lab 4 - Deploying to OpenShift](4-openshift.md)__
+__Continue with [Lab 4 - Deploying to OpenShift](4-openshift.md)__
 
