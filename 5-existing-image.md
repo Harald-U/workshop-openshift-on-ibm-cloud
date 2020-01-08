@@ -6,7 +6,7 @@
 
 This is a quick lab that demonstrates how to deploy a public image from Docker Hub onto OpenShift. As starting point an image of the 'authors' microservice from this workshop has already been loaded on Docker Hub.
 
-Note: Not all images from Docker Hub can be installed and used on OpenShift. For example, OpenShift doesn't allow to deploy images which run as 'root'. See the OpenShift [documentation](https://docs.openshift.com/container-platform/3.3/creating_images/guidelines.html) for details.
+Note: Not all images from Docker Hub can be used on OpenShift. For example, OpenShift does run containers as 'root' which means that a lot of images from Docker Hub won't start. See the OpenShift [documentation](https://docs.openshift.com/container-platform/3.3/creating_images/guidelines.html) for details.
 
 ## Step 1
 
@@ -42,25 +42,25 @@ Navigate back to the overview page.
 
 <kbd><img src="images/lab-5-step-5.png" /></kbd>
 
-## Step 7
+## Step 6
 
 Open 'authors-img' and click 'Create Route'.
 
 <kbd><img src="images/lab-5-step-6.png" /></kbd>
 
-## Step 8
+## Step 7
 
-Scroll down and click the 'Create' button (not shown in the screenshot).
+Accept the defaults, scroll down and click the 'Create' button (not shown in the screenshot).
 
 <kbd><img src="images/lab-5-step-7.png" /></kbd>
 
-## Step 9
+## Step 8
 
-In a browser open the URL of 'authors-img' and append '/openapi/ui'.
+Click on the URL of 'authors-img', this will open the default Open Liberty Welcome page, and append '/openapi/ui' to the URL.
 
 <kbd><img src="images/lab-5-step-8.png" /></kbd>
 
-## Step 10
+## Step 9
 
 This opens the Open API user interface to try the REST API.
 

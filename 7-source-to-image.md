@@ -14,12 +14,14 @@ In order to use S2I, builder images are needed. These builder images create the 
 
 OpenShift provides several builder images out of the box, for example for Node.js and Wildfly applications. In order to support other runtimes, for example Open Liberty, custom builder images can be built and deployed. Since this workshop uses Open Liberty, we will use a [builder image for Open Liberty](https://github.com/nheidloff/s2i-open-liberty) which needs to be deployed before the actual Open Liberty microservice can be deployed.
 
-In order to deploy the image builder 'nheidloff/s2i-open-liberty' the OpenShift Web Console is used.
+To deploy the image builder 'nheidloff/s2i-open-liberty' the OpenShift Web Console is used.
 
 
 ### Step 1
 
-In order to open the registry console, choose the default project, expand registry-console and click on the URL.
+First we need to add the Open Liberty builder image to the OpenShift internal image registry. For reasons unknown, Red Hat decided to place the Image Registry in the default namespace in version 3 of OpenShift. (This has changed in version 4.)
+
+To open the registry console, choose the default project, expand registry-console and click on the URL.
 
 <kbd><img src="images/lab-7-step-2.png" /></kbd>
 
@@ -37,7 +39,7 @@ It will take a moment to pull the image. After this the image will show up in th
 
 <kbd><img src="images/lab-7-step-4.png" /></kbd>
 
-The other images were created during the previous labs.
+The other images you see on this page were created during the previous labs.
 
 ## Deployment of the Microservice
 
@@ -63,7 +65,8 @@ After you've run these commands, the file 'authors.war' will appear in the 'targ
 
 Next we create a new OpenShift application (our microservice) in your project.
 
-We define in the first parameter of the 'oc new-app' command that we want to use the Open Liberty builder image (s2i-open-liberty:latest) to produce the production image with Open Liberty and our microservice (server.xml and authors.war which are located in the local repository '/.' which is the part after '~')
+The first parameter of the `oc new-build` command may look strange: 
+the first part (s2i-open-liberty:latest) specifies the Open Liberty builder image, then comes a seperator ('~'), then the specification of the local repository '/.' which contains the server.xml and authors.war needed for the build.
 
 ```
 $ cd ${ROOT_FOLDER}/deploying-to-openshift
@@ -81,7 +84,7 @@ If you look in the OpenShift Web Console now, you will see that the build failed
 
 <kbd><img src="images/lab-7-step-7-1.png" /></kbd>
 
-Before the microservice can be deployed with the image builder, the code (or more precisely 'authors.jar' and 'server.xml') need to be uploaded to OpenShift. This is done via 'oc start-build'.
+Before the microservice can be deployed with the image builder, the code (or more precisely 'authors.war' and 'server.xml') need to be uploaded to OpenShift. This is done via 'oc start-build'.
 
 In the 'oc start-build' command we refer to the code of our Java microservice in the current directory.
 
@@ -89,7 +92,7 @@ In the 'oc start-build' command we refer to the code of our Java microservice in
 $ oc start-build --from-dir . authors-s2i
 ```
 
-After a couple of seconds you can see the successful build in the OpenShift Web Console.
+After a moment you can see the successful build in the OpenShift Web Console.
 
 <kbd><img src="images/lab-7-step-8.png" /></kbd>
 
@@ -108,4 +111,4 @@ To test the deployment, append '/openapi/ui' to the URL in the output of 'oc get
 
 ---
 
-:star:This concludes this workshop, congratulations!
+**This concludes this workshop, congratulations!**

@@ -187,7 +187,8 @@ spec:
    $ cd ${ROOT_FOLDER}/deploying-to-openshift/deployment
    ```
 
-2. Make a copy of 'template.deployment.yaml', name it 'deployment.yaml' file and adjust the "pull" name for the "image" location parameter to the name of your project. In the IBM Cloud Shell you can use `nano` as a simple text editor:
+2. Make a copy of 'template.deployment.yaml', name it 'deployment.yaml' file and adjust the "pull" name for the "image" location parameter to the name of your project. You saw the "pull" name at the end of step 4 in part 1 of this workshop.
+In the IBM Cloud Shell you can use `nano` as a simple text editor:
 
     ```
     $ cp template.deployment.yaml deployment.yaml
