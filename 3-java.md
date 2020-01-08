@@ -1,4 +1,4 @@
-# Lab 3 - Understanding the Java Implementation
+# Lab 3 (Optional) - Understanding the Java Implementation
 
 _Note:_ If you want to examine the java developer task you can do that lab, if not, just directly jump into [lab 4 - Deploying to OpenShift](4-openshift.md).
 

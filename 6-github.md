@@ -4,7 +4,7 @@
 
 ## Overview
 
-This lab shows how to deploy applications from Git repositories.
+This lab shows how to deploy applications from Git repositories. 
 
 This deployment option checks whether a Dockerfile exist. With the Dockerfile a build on OpenShift is initiated. Since we use a Dockerfile with two stages, both the Java code is built as well as the Docker image.
 
@@ -14,10 +14,10 @@ Read the [documentation](https://docs.openshift.com/enterprise/3.0/dev_guide/new
 
 ### Step 1
 
-Create a new project 'deployment-from-github'.
+Make sure you are using your own project:
 
 ```
-$ oc new-project deployment-from-github
+$ oc project <yourfirstname-yourlastname>
 ```
 
 ### Step 2
@@ -25,7 +25,7 @@ $ oc new-project deployment-from-github
 Create a new application and refer to a subdirectory in the GitHub repo.
 
 ```
-$ oc new-app https://github.com/IBM/openshift-on-ibm-cloud-workshops --context-dir=2-deploying-to-openshift
+$ oc new-app https://github.com/Harald-U/workshop-openshift-on-ibm-cloud --context-dir=deploying-to-openshift --name=authors-git
 ```
 
 As result you'll get this output.
@@ -45,11 +45,11 @@ After the build the pod and the service will be deployed. Note that the healthch
 In the last step create a route.
 
 ```
-$ oc expose svc/openshift-on-ibm-cloud-workshops
-$ oc get route/openshift-on-ibm-cloud-workshops
+$ oc expose svc/authors-git
+$ oc get route/authors-git
 ```
 
-To test the deployment, append '/openapi/ui' to the URL in the output of 'oc get route/openshift-on-ibm-cloud-workshops' and open it in a browser.
+To test the deployment, append '/openapi/ui' to the URL in the output of 'oc get route/authors-git' and open it in a browser.
 
 This is the deployed application with the route.
 

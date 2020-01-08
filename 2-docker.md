@@ -1,4 +1,4 @@
-# Lab 2 - Running the Java Microservice locally
+# Lab 2 (Optional) - Running the Java Microservice locally
 
 _Note:_ If you want to examine the java developer task you can do that lab, if not, just directly jump into [lab 4 - Deploying to OpenShift](4-openshift.md).
 

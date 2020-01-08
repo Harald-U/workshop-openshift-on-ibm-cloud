@@ -1,4 +1,14 @@
-# Deploying Java Microservices to OpenShift on IBM Cloud
+# OpenShift on IBM Cloud Workshop
+
+![logo](images/os_logo.png)
+
+[Red Hat OpenShift on IBM Cloud](https://cloud.ibm.com/docs/openshift?topic=openshift-why_openshift) is an extension of the IBM Cloud Kubernetes Service where IBM manages OpenShift Container Platform for you. 
+
+With Red Hat OpenShift on IBM Cloud developers have a fast and secure way to containerize and deploy enterprise workloads in Kubernetes clusters. OpenShift clusters build on Kubernetes container orchestration that offers consistency and flexibility for your development lifecycle operations.
+
+## Deploying Java Microservices to OpenShift on IBM Cloud
+
+Note: In order to run this workshop, you need an [IBM Cloud account](https://cloud.ibm.com/registration).
 
 This workshop demonstrates how to build a microservice with Java and how to deploy it to OpenShift on the IBM Cloud.
 
@@ -18,7 +28,7 @@ This workshop has 8 labs. It should take between 60 and 90 minutues to complete 
 5. [Deploying existing images to OpenShift](5-existing-image.md)
 6. [Deployments of code in GitHub repos](6-github.md)
 7. [Source to Image deployments](7-source-to-image.md)
-8. [Distributed logging with LogDNA and OpenShift on IBM Cloud](8-logdna-openshift.md)
+
 
 The first lab describes how to install all required prerequisites. In the easiest case this is only Docker Desktop and an image with all other tools.
 
@@ -33,4 +43,3 @@ The next four labs explain four different ways to deploy applications to OpenShi
 | Lab 6: Git Repo | required  | not required | OpenShift | OpenShift |
 | Lab 7: Source to Image | not required | not required | Desktop | OpenShift |
 
-The last lab shows how to create a LogDNA logging service on IBM Cloud and connect it with OpenShift to collect distributed logs.

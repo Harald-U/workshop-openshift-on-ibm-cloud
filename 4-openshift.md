@@ -1,5 +1,7 @@
 # Lab 4 - Deploying to OpenShift
 
+> Deploying to OpenShift via 'oc' CLI: [video (14:32 mins)](https://youtu.be/4MDfalo2Fg0)
+
 ## Overview
 
 In this lab we will work in the OpenShift Web Console and with the OpenShift `oc` CLI. The following image is a simplified overview of the topics of that lab. Have in mind that [OpenShift](https://www.youtube.com/watch?v=5dwMrFxq8sU&feature=youtu.be) is a [Kubernetes](https://www.youtube.com/watch?v=4ht22ReBjno) platform.
@@ -161,7 +163,7 @@ spec:
     spec:
       containers:
       - name: authors
-        image: docker-registry.default.svc:5000/harald-uebele/authors:latest
+        image: docker-registry.default.svc:5000/<projectname>/authors:latest
         ports:
         - containerPort: 3000
         livenessProbe:
@@ -183,9 +185,10 @@ spec:
   $ cd ${ROOT_FOLDER}/deploying-to-openshift/deployment
   ```
 
-2. Edit the deployment.yaml file and adjust the "pull" name for the "image" location parameter to the name of your project. In the IBM Cloud Shell you can use `nano` as a simple text editor:
+2. Make a copy of 'template.deployment.yaml', name it 'deployment.yaml' file and adjust the "pull" name for the "image" location parameter to the name of your project. In the IBM Cloud Shell you can use `nano` as a simple text editor:
 
   ```
+  $ cp template.deployment.yaml deployment.yaml
   $ nano deployment.yaml
   ```
 

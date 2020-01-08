@@ -1,8 +1,10 @@
 # Lab 5 - Deploying existing Images from Docker Hub
 
+> Deploying existing images to OpenShift: [video (7:09 mins)](https://youtu.be/JhxsS7l6DhA)
+
 ## Overview
 
-This is a quick lab that demonstrates how to deploy a public image from Docker Hub onto OpenShift. As example an image of the 'authors' microservice from this workshop has been loaded on Docker Hub.
+This is a quick lab that demonstrates how to deploy a public image from Docker Hub onto OpenShift. As starting point an image of the 'authors' microservice from this workshop has already been loaded on Docker Hub.
 
 Note: Not all images from Docker Hub can be installed and used on OpenShift. For example, OpenShift doesn't allow to deploy images which run as 'root'. See the OpenShift [documentation](https://docs.openshift.com/container-platform/3.3/creating_images/guidelines.html) for details.
 

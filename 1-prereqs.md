@@ -1,5 +1,6 @@
 # Prerequisties
 
+> Installing prerequisites: [video (2:58 mins)](https://youtu.be/c5CtqijWXL4) and [video including windows (4:11 mins)](https://youtu.be/53XccO3NNn8)
 
 ## Overview 
 
