@@ -66,7 +66,7 @@ After you've run these commands, the file 'authors.war' will appear in the 'targ
 Next we create a new OpenShift application (our microservice) in your project.
 
 The first parameter of the `oc new-build` command may look strange: 
-the first part (s2i-open-liberty:latest) specifies the Open Liberty builder image, then comes a seperator ('~'), then the specification of the local repository '/.' which contains the server.xml and authors.war needed for the build.
+the first part (s2i-open-liberty:latest) specifies the Open Liberty builder image, then comes a separator ('~'), then the specification of the local repository '/.' which contains the server.xml and authors.war needed for the build.
 
 ```
 $ cd ${ROOT_FOLDER}/deploying-to-openshift
@@ -74,13 +74,13 @@ $ oc project <yourfistname-yourlastname>
 $ oc new-app s2i-open-liberty:latest~/. --name=authors-s2i
 ```
 
-After this you should see this:
+After executing these commands you should see this:
 
 <kbd><img src="images/lab-7-step-7.png" /></kbd>
 
 ### Step 6
 
-If you look in the OpenShift Web Console now, you will see that the build failed which is to be expected:
+If you look in the OpenShift Web Console now, you will see that the build failed -- which is to be expected:
 
 <kbd><img src="images/lab-7-step-7-1.png" /></kbd>
 
@@ -111,4 +111,8 @@ To test the deployment, append '/openapi/ui' to the URL in the output of 'oc get
 
 ---
 
-**This concludes this workshop, congratulations!**
+**This concludes the workshop, congratulations!**
+
+When you go back to the OpenShift Web Console and look in the overview of your project, you will see four instances of the authors microservice, deployed to OpenShift in four different ways:
+
+<kbd><img src="images/os-overview-all.png" /></kbd>
