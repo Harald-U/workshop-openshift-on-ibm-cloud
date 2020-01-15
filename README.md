@@ -33,9 +33,9 @@ The next four labs show four different ways to deploy applications to OpenShift 
 
 To continue with the workshop follow these steps:
 
-1. [Installing prerequisites](1-prereqs.md)
-2. [Optional: Running the Java microservice locally](2-docker.md)
-3. [Optional: Understanding the Java implementation](3-java.md)
+#### 1. [Installing prerequisites](1-prereqs.md)
+2. [OPTIONAL: Running the Java microservice locally](2-docker.md)
+3. [OPTIONAL: Understanding the Java implementation](3-java.md)
 4. [Deploying to OpenShift via 'oc' CLI](4-openshift.md)
 5. [Deploying existing images to OpenShift](5-existing-image.md)
 6. [Deployments of code in GitHub repos](6-github.md)

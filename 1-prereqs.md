@@ -20,7 +20,7 @@ For the rest of the labs we will use the (unofficial) **IBM Cloud Shell**. To ac
 5. Click on the Terminal icon next to it
 
 
-Note: You *can* run the the labs locally on your laptop. You will need to install the following tools:
+Note: You *could* run the the labs locally on your laptop. But then you will need to install the following tools:
 
 - [docker](https://docs.docker.com/install/)
 - [oc](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install#cli_oc)

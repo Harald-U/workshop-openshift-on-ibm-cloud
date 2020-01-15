@@ -17,7 +17,7 @@ Read the [documentation](https://docs.openshift.com/enterprise/3.0/dev_guide/new
 Make sure you are using your own project:
 
 ```
-$ oc project <yourfirstname-yourlastname>
+$ oc project
 ```
 
 ### Step 2
