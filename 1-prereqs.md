@@ -16,6 +16,7 @@ For the rest of the labs we will use the (unofficial) **IBM Cloud Shell**. To ac
 1. Open [https://workshop.shell.cloud.ibm.com/](https://workshop.shell.cloud.ibm.com/)
 2. Click `Login` in the upper right corner
 3. Login with your IBM Cloud Account / IBM ID
+4. If it asks for a passcode, use 'ikslab'
 4. Select your account from the pulldown in the upper right corner
 5. Click on the Terminal icon next to it
 
