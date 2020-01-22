@@ -11,15 +11,15 @@ We will use a shared [OpenShift on IBM Cloud](https://cloud.ibm.com/kubernetes/c
 
 For the **optional Java developer labs** 2 and 3 you need a local `docker` and `git` installation.
 
-For the rest of the labs we will use the (unofficial) **IBM Cloud Shell**. To access IBM Cloud Shell:
+For the rest of the labs we will use the IBM Cloud Shell (Beta):
 
-1. Open [https://workshop.shell.cloud.ibm.com/](https://workshop.shell.cloud.ibm.com/)
-2. Click `Login` in the upper right corner
-3. Login with your IBM Cloud Account / IBM ID
-4. If it asks for a passcode, use 'ikslab'
-4. Select your account from the pulldown in the upper right corner
-5. Click on the Terminal icon next to it
+1. In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard
+2. Make sure you select **your own account** in the account list, then click on the IBM Cloud Shell Icon
+   ![](images/cloudshellicon.png)
 
+    Note: You can use Cloud Shell for up to 4 hours continuously or up to 30 hours within a single week. If you reach this limit, all Cloud Shell sessions are closed, and any data in your workspace is deleted. If you reach your weekly limit, you can access Cloud Shell only in 5-minute increments until the week resets.
+
+   ![](images/cloudshell.png)
 
 Note: You *could* run the the labs locally on your laptop. But then you will need to install the following tools:
 
