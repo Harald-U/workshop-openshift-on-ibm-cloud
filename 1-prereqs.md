@@ -30,7 +30,7 @@ Note: You *could* run the the labs locally on your laptop. But then you will nee
 - [maven](https://maven.apache.org/install.html) + JDK
 - Optional: Editor, for example [Visual Studio Code](https://code.visualstudio.com/) 
 
-##Get the code
+## Get the code
 
 In the IBM Cloud Shell execute the following commands:
 
