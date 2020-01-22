@@ -69,8 +69,6 @@ The first parameter of the `oc new-build` command may look strange:
 the first part (s2i-open-liberty:latest) specifies the Open Liberty builder image, then comes a separator ('~'), then the specification of the local repository '/.' which contains the server.xml and authors.war needed for the build.
 
 ```
-$ cd ${ROOT_FOLDER}/deploying-to-openshift
-$ oc project <yourfistname-yourlastname>
 $ oc new-app s2i-open-liberty:latest~/. --name=authors-s2i
 ```
 
