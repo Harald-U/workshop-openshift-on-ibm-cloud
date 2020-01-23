@@ -13,6 +13,7 @@ For the **optional Java developer labs** 2 and 3 you need a local `docker` and `
 
 For the rest of the labs we will use the IBM Cloud Shell (Beta):
 
+
 1. In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard
 2. Make sure you select **your own account** in the account list, then click on the IBM Cloud Shell Icon
    ![](images/cloudshellicon.png)
