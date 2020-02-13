@@ -20,7 +20,7 @@ This workshop has 7 labs and should take between 60 and 90 minutues to complete.
 
 The first lab describes how to install all required prerequisites. In the easiest case this means accessing the IBM Cloud Shell.
 
-<**OPTIONAL**>Lab 2 and 3 describe how to develop a microservice with Java EE and Eclipse MicroProfile and are useful if you are interested in programming, hence they are optional.<**/OPTIONAL**>
+<**OPTIONAL**>Lab 2 and 3 describe how to develop a microservice with Java EE and Eclipse MicroProfile and are useful if you are interested in coding.<**/OPTIONAL**>
 
 The next four labs show four different ways to deploy applications to OpenShift with their pros and cons in this specific scenario:
 
