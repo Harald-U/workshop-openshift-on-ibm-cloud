@@ -109,8 +109,11 @@ To test the deployment, append '/openapi/ui' to the URL in the output of 'oc get
 
 ---
 
-**This concludes the workshop, congratulations!**
 
 When you go back to the OpenShift Web Console and look in the overview of your project, you will see four instances of the authors microservice, deployed to OpenShift in four different ways:
 
 <kbd><img src="images/os-overview-all.png" /></kbd>
+
+---
+
+:star: __Continue with [Lab 8 - Distributed logging with LogDNA and OpenShift on IBM Cloud](8-logdna-openshift.md)__

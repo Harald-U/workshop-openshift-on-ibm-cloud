@@ -51,11 +51,11 @@ $ ROOT_FOLDER=$(pwd)
 
 2. Select the account given to you by the instructor from the pulldown in the uper right corner.
 
-3. Select **OpenShift** in the menu
+3. Select **OpenShift** in the 'burger' menu
 
     ![Select Open Shift in the menu](images/os-registry-01.png)
 
-4. Chose **Clusters** and click on the **OpenShift cluster**
+4. Chose **Clusters** and click on your **OpenShift cluster**
 
     ![Chose Clusters and click on your OpenShift cluster](images/os-registry-02.png)
 

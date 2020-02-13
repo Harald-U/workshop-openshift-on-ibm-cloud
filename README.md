@@ -20,7 +20,7 @@ This workshop has 7 labs and should take between 60 and 90 minutues to complete.
 
 The first lab describes how to install all required prerequisites. In the easiest case this means accessing the IBM Cloud Shell.
 
-Lab 2 and 3 describe how to develop a microservice with Java EE and Eclipse MicroProfile and are useful if you are interested in programming, hence **they are optional**.
+<**OPTIONAL**>Lab 2 and 3 describe how to develop a microservice with Java EE and Eclipse MicroProfile and are useful if you are interested in programming, hence they are optional.<**/OPTIONAL**>
 
 The next four labs show four different ways to deploy applications to OpenShift with their pros and cons in this specific scenario:
 
@@ -31,6 +31,8 @@ The next four labs show four different ways to deploy applications to OpenShift 
 | Lab 6: Git Repo | required  | not required | OpenShift | OpenShift |
 | Lab 7: Source to Image | not required | not required | Desktop | OpenShift |
 
+---
+
 To continue with the workshop follow these steps:
 
 1. **>> [Installing prerequisites](1-prereqs.md) <<**
@@ -40,3 +42,4 @@ To continue with the workshop follow these steps:
 5. [Deploying existing images to OpenShift](5-existing-image.md)
 6. [Deployments of code in GitHub repos](6-github.md)
 7. [Source to Image deployments](7-source-to-image.md)
+8. [Distributed logging with LogDNA and OpenShift on IBM Cloud](8-logdna-openshift.md)
