@@ -16,20 +16,13 @@ For the rest of the labs we will use the IBM Cloud Shell (Beta):
 
 1. In your browser, login to the [IBM Cloud](https://cloud.ibm.com) Dashboard
 2. Make sure you select **your own account** in the account list, then click on the IBM Cloud Shell Icon
+
    ![](images/cloudshellicon.png)
 
-    Note: You can use Cloud Shell for up to 4 hours continuously or up to 30 hours within a single week. If you reach this limit, all Cloud Shell sessions are closed, and any data in your workspace is deleted. If you reach your weekly limit, you can access Cloud Shell only in 5-minute increments until the week resets.
+    Note: Cloud Shell includes 500 MB of temporary storage. Your session closes after 30 minutes of inactivity. If you’re inactive in Cloud Shell for over an hour, your workspace data is removed. It’s also removed if you reach the 4-hour continuous usage or 30-hour weekly usage limits. To track your usage, go to Usage quota in the Cloud Shell menu (3 vertical dots in the upper right corner).
 
    ![](images/cloudshell.png)
 
-Note: You *could* run the the labs locally on your laptop. But then you will need to install the following tools:
-
-- [docker](https://docs.docker.com/install/)
-- [oc](https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install#cli_oc)
-- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
-- [curl](https://curl.haxx.se/download.html)
-- [maven](https://maven.apache.org/install.html) + JDK
-- Optional: Editor, for example [Visual Studio Code](https://code.visualstudio.com/) 
 
 ## Get the code
 
@@ -77,8 +70,8 @@ $ ROOT_FOLDER=$(pwd)
     ```
 
     ![oc login in cloudshell](images/oc-login-cloudshell.png)
----
 
+---
 
 __Continue with [Lab 4 - Deploying to OpenShift](4-openshift.md)__
 

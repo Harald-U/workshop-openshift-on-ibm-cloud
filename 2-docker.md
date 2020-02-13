@@ -125,6 +125,9 @@ http://localhost:3000/openapi/ui/
 ```
   $ curl -X GET "http://localhost:3000/api/v1/getauthor?name=Niklas%20Heidloff" -H "accept: application/json"
 ```
+
 ---
 
-:star: __Continue with [Lab 3 - Understanding the Java Implementation](./3-java.md#lab-3---understanding-the-java-implementation)__ or if you are not a developer you can __move on with [Lab 4 - Deploying to OpenShift](./4-openshift.md#lab-4---deploying-to-openshift)__ 
+__Continue with [Lab 4 - Deploying to OpenShift](./4-openshift.md#lab-4---deploying-to-openshift)__. 
+If you are interested in coding you can go to 
+__[Lab 3 - Understanding the Java Implementation](./3-java.md#lab-3---understanding-the-java-implementation)__  

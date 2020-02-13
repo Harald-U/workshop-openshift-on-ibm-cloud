@@ -116,4 +116,4 @@ When you go back to the OpenShift Web Console and look in the overview of your p
 
 ---
 
-:star: __Continue with [Lab 8 - Distributed logging with LogDNA and OpenShift on IBM Cloud](8-logdna-openshift.md)__
+__Continue with [Lab 8 - Distributed logging with LogDNA and OpenShift on IBM Cloud](8-logdna-openshift.md)__

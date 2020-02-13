@@ -6,9 +6,9 @@
 
 This lab shows how to deploy applications from Git repositories. 
 
-This deployment option checks whether a Dockerfile exist. With the Dockerfile a build on OpenShift is initiated. Since we use a Dockerfile with two stages, both the Java code is built as well as the Docker image.
+This deployment option checks whether a Dockerfile exist. With the Dockerfile a build on OpenShift is initiated. Since we use a Dockerfile with two stages, both the Java binary is built as well as the Docker image.
 
-Note that the yaml files are ignored with this approach.
+Note that Kubernetes yaml files are ignored with this approach.
 
 Read the [documentation](https://docs.openshift.com/enterprise/3.0/dev_guide/new_app.html#specifying-source-code) for more details.
 

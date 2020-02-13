@@ -4,7 +4,7 @@
 
 ## Overview / Background
 
-In this lab we will work in the OpenShift Web Console and with the OpenShift `oc` CLI. The following image is a simplified overview of the topics of that lab. Have in mind that [OpenShift](https://www.youtube.com/watch?v=5dwMrFxq8sU&feature=youtu.be) is a [Kubernetes](https://www.youtube.com/watch?v=4ht22ReBjno) platform.
+In this lab we will work in the OpenShift Web Console and with the OpenShift `oc` CLI in the IBM Cloud Shell. The following image is a simplified overview of the topics of that lab. Have in mind that [OpenShift](https://www.youtube.com/watch?v=5dwMrFxq8sU&feature=youtu.be) is a [Kubernetes](https://www.youtube.com/watch?v=4ht22ReBjno) platform.
 
 ![overview](images/lab-4-overview.png)
 
@@ -33,7 +33,7 @@ The following gif is an animation of the simplified steps above in a sequence.
 
 We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. You will be using this project throughout the whole workshop. **We are working in a shared environment so everybody needs to create a unique project for themselves.** The easiest way is to use your own name in the form `yourfistname-yourlastname`, e.g. my project that you can see in many screenshots is 'harald-uebele'. 
 
-_Note:_ A [project allows](https://docs.openshift.com/container-platform/3.7/dev_guide/projects.html#overview) a community of users to organize and manage their content in isolation from other communities.
+_Note:_ A [project](https://docs.openshift.com/container-platform/3.7/dev_guide/projects.html#overview) is similar to a namespace in Kubernetes with added security. It allows a community of users to organize and manage their content in isolation from other communities.
 
 ```
 $ cd ${ROOT_FOLDER}/deploying-to-openshift
@@ -97,7 +97,7 @@ $ oc start-build authors-bin --from-dir=.
 
    ![image stream authors-bin](images/os-registry-07.png)
 
-# 2. Apply the deployment.yaml
+# 2. Deploy the Microservice
 
 This deployment will deploy a container to a Pod in Kubernetes.
 For more details we use the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) for Pods.
@@ -311,6 +311,6 @@ spec:
 
 ---
 
-:star: __Continue with [Lab 5 - Deploying existing Images from Docker Hub](./5-existing-image.md)__
+__Continue with [Lab 5 - Deploying existing Images from Docker Hub](./5-existing-image.md)__
 
 

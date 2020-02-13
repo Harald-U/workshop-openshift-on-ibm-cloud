@@ -96,4 +96,4 @@ For the following instructions use the [Tools](https://github.com/nheidloff/open
 
 ---
 
-:star: __Congratulation! You completed the workshop!__
+__Congratulation! You completed the workshop!__
