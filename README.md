@@ -27,19 +27,20 @@ The next four labs show four different ways to deploy applications to OpenShift 
 | Option | Dockerfile | yaml Files | Java Build | Docker Build |
 | - | - | - | - | - |
 | Lab 4: Kubernetes-like | required | required | OpenShift | OpenShift |
-| Lab 5: Existing Image  | not required  | not required | N/A | N/A |
-| Lab 6: Git Repo | required  | not required | OpenShift | OpenShift |
-| Lab 7: Source to Image | not required | not required | Desktop | OpenShift |
+| Lab 6: Existing Image  | not required  | not required | N/A | N/A |
+| Lab 7: Git Repo | required  | not required | OpenShift | OpenShift |
+| Lab 8: Source to Image | not required | not required | Desktop | OpenShift |
 
 ---
 
 To continue with the workshop follow these steps:
 
 1. **>> [Prerequisites](1-prereqs.md) <<**
-2. [OPTIONAL: Running the Java microservice locally](2-docker.md)
-3. [OPTIONAL: Understanding the Java implementation](3-java.md)
-4. [Deploying to OpenShift via 'oc' CLI](4-openshift.md)
-5. [Deploying existing images to OpenShift](5-existing-image.md)
-6. [Deployments of code in GitHub repos](6-github.md)
-7. [Source to Image deployments](7-source-to-image.md)
-8. [Distributed logging with LogDNA and OpenShift on IBM Cloud](8-logdna-openshift.md)
+1. [OPTIONAL: Running the Java microservice locally](2-docker.md)
+1. [OPTIONAL: Understanding the Java implementation](3-java.md)
+1. [Deploying to OpenShift via 'oc' CLI](4-openshift.md)
+1. [Distributed logging with LogDNA and OpenShift on IBM Cloud](5-logdna-openshift.md)
+1. [Deploying existing images to OpenShift](6-existing-image.md)
+1. [Deployments of code in GitHub repos](7-github.md)
+1. [Source to Image deployments](8-source-to-image.md)
+

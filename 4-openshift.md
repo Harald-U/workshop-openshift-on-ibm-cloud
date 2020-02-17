@@ -31,7 +31,7 @@ The following gif is an animation of the simplified steps above in a sequence.
 
 ## Step 1: Create an Open Shift project
 
-We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. You will be using this project throughout the whole workshop. **We are working in a shared environment so everybody needs to create a unique project for themselves.** The easiest way is to use your own name in the form `yourfistname-yourlastname`, e.g. my project that you can see in many screenshots is 'harald-uebele'. 
+We need an OpenShift project, this is simply put equivalent to a Kubernetes namespace plus OpenShift security. You will be using this project throughout the whole workshop.  The easiest way is to use your own name in the form `yourfistname-yourlastname`, e.g. my project that you can see in many screenshots is 'harald-uebele'. 
 
 _Note:_ A [project](https://docs.openshift.com/container-platform/3.7/dev_guide/projects.html#overview) is similar to a namespace in Kubernetes with added security. It allows a community of users to organize and manage their content in isolation from other communities.
 
@@ -61,7 +61,7 @@ $ oc start-build authors-bin --from-dir=.
 ## Step 3: Verify the build in the OpenShift web console
 
 
-1. Select your project (yourfistname-yourlastname) project in 'My Projects'
+1. Select your project (yourfistname-yourlastname) ocin 'My Projects'
 
    ![Select in My Projects the default project](images/os-registry-04.png)
 
@@ -311,6 +311,6 @@ spec:
 
 ---
 
-__Continue with [Lab 5 - Deploying existing Images from Docker Hub](./5-existing-image.md)__
+__Continue with [Lab 5 - Distributed logging with LogDNA and OpenShift on IBM Cloud](./5-logdna-openshift.md)__
 
 

@@ -1,4 +1,4 @@
-# Lab 7 - Source to Image Deployments
+# Lab 8 - Source to Image Deployments
 
 > Source to Image deployments: [video (7:06 mins)](https://youtu.be/p6lVc6MDrcM)
 
@@ -10,42 +10,59 @@ Source-to-Image (S2I) is a toolkit for building reproducible container images fr
 
 In order to use S2I, builder images are needed. These builder images create the actual images with the applications. The builder images are similar to Cloud Foundry buildpacks.
 
-## Deployment of the Open Liberty Builder Image
+## 1. Deployment of the Open Liberty Builder Image
 
-OpenShift provides several builder images out of the box, for example for Node.js and Wildfly applications. In order to support other runtimes, for example Open Liberty, custom builder images can be built and deployed. Since this workshop uses Open Liberty, we will use a [builder image for Open Liberty](https://github.com/nheidloff/s2i-open-liberty) which needs to be deployed before the actual Open Liberty microservice can be deployed.
-
-To deploy the image builder 'nheidloff/s2i-open-liberty' the OpenShift Web Console is used.
+OpenShift provides several builder images out of the box, for example for Node.js and Wildfly applications. In order to support other runtimes, for example Open Liberty, custom builder images can be built and deployed. Since this workshop uses Open Liberty, we will use a [builder image for Open Liberty](https://github.com/nheidloff/s2i-open-liberty) which needs to be imported before the actual Open Liberty microservice can be deployed.
 
 
-### Step 1
 
-First we need to add the Open Liberty builder image to the OpenShift internal image registry. For reasons unknown, Red Hat decided to place the Image Registry in the default namespace in version 3 of OpenShift. (This has changed in version 4.)
+Check that you are in your own OpenShift project (firstname-lastname):
 
-To open the registry console, choose the default project, expand registry-console and click on the URL.
+```
+$ oc project
+```
 
-<kbd><img src="images/lab-7-step-2.png" /></kbd>
+Add the Open Liberty builder image to the OpenShift internal image registry:
 
-### Step 2
+```
+$ oc import-image docker.io/nheidloff/s2i-open-liberty:latest --confirm
+```
 
-Click on 'Images', then select your project ('yourfistname-yourlastname') and then click on 'New image stream'. In the dialog use 's2i-open-liberty' as name, select 'Sync all tags ...' from the pulldown, and refer to the image on Docker Hub 'nheidloff/s2i-open-liberty'. Then click 'Create'.
+Result:
 
-An image stream is an OpenShift abstraction to access images. In this case we are using it to pull images from Docker Hub into the OpenShift registry.
+```
+imagestream.image.openshift.io/s2i-open-liberty imported
 
-<kbd><img src="images/lab-7-step-3.png" /></kbd>
+Name:                   s2i-open-liberty
+Namespace:              harald-uebele
+Created:                Less than a second ago
+Labels:                 <none>
+Annotations:            openshift.io/image.dockerRepositoryCheck=2020-02-17T10:12:55Z
+Docker Pull Spec:       docker-registry.default.svc:5000/harald-uebele/s2i-open-liberty
+Image Lookup:           local=false
+Unique Images:          1
+Tags:                   1
 
-### Step 3
+latest
+  tagged from docker.io/nheidloff/s2i-open-liberty:latest
 
-It will take a moment to pull the image. After this the image will show up in the user interface.
+  * docker.io/nheidloff/s2i-open-liberty@sha256:b9959c8ba775255e48015a119a49ba8aa60c344779d4fe2f65a6310a3231bd89
+      Less than a second ago
 
-<kbd><img src="images/lab-7-step-4.png" /></kbd>
+[...]
+ ```     
 
-The other images you see on this page were created during the previous labs.
+In the OpenShift Web Console, in your own project, go to 'Build' and 'Images' and check that the 's2i-open-liberty:latest' image is present:
 
-## Deployment of the Microservice
+![s2i](images/s2i-image.png)
+
+The other images are the result of your previous deployments.
+
+## 2. Deployment of the Microservice
 
 The previous steps to install the Open Liberty builder image only have to be executed once. After this multiple Open Liberty applications can be deployed without Dockerfiles and yaml files.
 
-### Step 4
+### Step 1
 
 The image builder expects a certain directory structure of Open Liberty projects with two files:
 
@@ -61,7 +78,7 @@ $ mvn package
 
 After you've run these commands, the file 'authors.war' will appear in the 'target' directory.
 
-### Step 5
+### Step 2
 
 Next we create a new OpenShift application (our microservice) in your project.
 
@@ -74,13 +91,13 @@ $ oc new-app s2i-open-liberty:latest~/. --name=authors-s2i
 
 After executing these commands you should see this:
 
-<kbd><img src="images/lab-7-step-7.png" /></kbd>
+![](images/lab-7-step-7.png)
 
-### Step 6
+### Step 3
 
 If you look in the OpenShift Web Console now, you will see that the build failed -- which is to be expected:
 
-<kbd><img src="images/lab-7-step-7-1.png" /></kbd>
+![](images/lab-7-step-7-1.png)
 
 Before the microservice can be deployed with the image builder, the code (or more precisely 'authors.war' and 'server.xml') need to be uploaded to OpenShift. This is done via 'oc start-build'.
 
@@ -92,11 +109,11 @@ $ oc start-build --from-dir . authors-s2i
 
 After a moment you can see the successful build in the OpenShift Web Console.
 
-<kbd><img src="images/lab-7-step-8.png" /></kbd>
+![](images/lab-7-step-8.png)
 
 Note that at this point the pod is not running yet as indicated by 'Rolling deployment is running ...'. After you've waited another minute or so, the pod will be ready and the grey circle will turn blue.
 
-### Step 7
+### Step 4
 
 In the last step the route has to be created as in the previous labs.
 
@@ -112,8 +129,8 @@ To test the deployment, append '/openapi/ui' to the URL in the output of 'oc get
 
 When you go back to the OpenShift Web Console and look in the overview of your project, you will see four instances of the authors microservice, deployed to OpenShift in four different ways:
 
-<kbd><img src="images/os-overview-all.png" /></kbd>
+![](images/os-overview-all.png)
 
 ---
 
-__Continue with [Lab 8 - Distributed logging with LogDNA and OpenShift on IBM Cloud](8-logdna-openshift.md)__
+__Congratulation! You have completed this workshop!__

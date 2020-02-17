@@ -1,4 +1,4 @@
-# Lab 6 - Deployments of Code in GitHub Repos
+# Lab 7 - Deployments of Code in GitHub Repos
 
 > Deployments of code in GitHub repos: [video (3:52 mins)](https://youtu.be/b3upMuZOpsY)
 
@@ -59,4 +59,4 @@ This is the deployed application with the route.
 
 ---
 
-__Continue with [Lab 7 - Source to Image Deployments](./7-source-to-image.md)__
+__Continue with [Lab 8 - Source to Image Deployments](./8-source-to-image.md)__

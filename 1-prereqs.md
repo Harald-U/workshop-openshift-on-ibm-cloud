@@ -7,9 +7,9 @@ An [IBM Cloud account](https://cloud.ibm.com/registration) is needed.
 We will use a shared [OpenShift on IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster) service on IBM Cloud in this hands-on workshop. You will have been granted access to a pre-configured OpenShift cluster.
 
 
-## Tools
+## 1. Work Environment
 
-For the **optional Java developer labs** 2 and 3 you need a local `docker` and `git` installation.
+For the **optional Java developer labs 2 and 3** you need a local `docker` and `git` installation.
 
 For the rest of the labs we will use the IBM Cloud Shell (Beta):
 
@@ -24,7 +24,7 @@ For the rest of the labs we will use the IBM Cloud Shell (Beta):
    ![](images/cloudshell.png)
 
 
-## Get the code
+## 2. Get the code
 
 In the IBM Cloud Shell execute the following commands:
 
@@ -36,7 +36,7 @@ $ ROOT_FOLDER=$(pwd)
 
 
 
-## Verify Access to OpenShift on the IBM Cloud
+## 3. Get Access to OpenShift on the IBM Cloud
 
 ### Open the OpenShift console. 
 

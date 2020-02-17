@@ -1,4 +1,4 @@
-# Lab 8 - Distributed logging with LogDNA and OpenShift on IBM Cloud
+# Lab 5 - Distributed logging with LogDNA and OpenShift on IBM Cloud
 
 A cloud native application based on microservices contains many parts that create logs. A logging service that is able to collect all distributed logs in one place is a highly recommended tool. There are many logging solutions that you can install directly into your Kubernetes or OpenShift cluster. But then you have an additional application that needs to be maintained and one that needs persistent storage as well to store logs for a period of time. 
 
@@ -96,4 +96,4 @@ For the following instructions use the [Tools](https://github.com/nheidloff/open
 
 ---
 
-__Congratulation! You completed the workshop!__
+__Continue with [Lab 6 - Deploying existing Images from Docker Hub](./6-existing-image.md)__
