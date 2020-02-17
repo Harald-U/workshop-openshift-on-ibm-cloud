@@ -4,8 +4,7 @@
 
 An [IBM Cloud account](https://cloud.ibm.com/registration) is needed. 
 
-We will use a shared [OpenShift on IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster) service on IBM Cloud in this hands-on workshop. You will have been granted access to a pre-configured OpenShift cluster.
-
+We will use preconfigured [OpenShift on IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster) clusters in this hands-on workshop. You should have received instructions to get access to one of these clusters.
 
 ## 1. Work Environment
 
