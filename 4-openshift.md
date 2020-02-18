@@ -182,10 +182,10 @@ spec:
 
 ## Step 1: Apply the deployment
 
-1. Ensure you are in the ```{ROOT_FOLDER}/2-deploying-to-openshift/deployment```
+1. Ensure you are in the ```{ROOT_FOLDER}/deploying-to-openshift/deployment```
 
    ```
-   $ cd ${ROOT_FOLDER}/2-deploying-to-openshift/deployment
+   $ cd ${ROOT_FOLDER}/deploying-to-openshift/deployment
    ```
 
 2. Make a copy of 'template.deployment.yaml', name it 'deployment.yaml' file and adjust the "pull" name for the "image" location parameter to the name of your project. You saw the "pull" name at the end of step 4 in part 1 of this workshop.
