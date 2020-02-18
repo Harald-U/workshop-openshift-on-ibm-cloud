@@ -36,6 +36,7 @@ We need an OpenShift project, this is simply put equivalent to a Kubernetes name
 _Note:_ A [project](https://docs.openshift.com/container-platform/3.7/dev_guide/projects.html#overview) is similar to a namespace in Kubernetes with added security. It allows a community of users to organize and manage their content in isolation from other communities.
 
 ```
+$ ROOT_FOLDER=$(pwd)
 $ cd ${ROOT_FOLDER}/deploying-to-openshift
 $ oc new-project <yourfistname-yourlastname>
 ```
@@ -181,10 +182,10 @@ spec:
 
 ## Step 1: Apply the deployment
 
-1. Ensure you are in the ```{ROOT_FOLDER}/deploying-to-openshift/deployment```
+1. Ensure you are in the ```{ROOT_FOLDER}/2-deploying-to-openshift/deployment```
 
    ```
-   $ cd ${ROOT_FOLDER}/deploying-to-openshift/deployment
+   $ cd ${ROOT_FOLDER}/2-deploying-to-openshift/deployment
    ```
 
 2. Make a copy of 'template.deployment.yaml', name it 'deployment.yaml' file and adjust the "pull" name for the "image" location parameter to the name of your project. You saw the "pull" name at the end of step 4 in part 1 of this workshop.
