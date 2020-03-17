@@ -166,7 +166,7 @@ spec:
     spec:
       containers:
       - name: authors
-        image: docker-registry.default.svc:5000/<projectname>/authors:latest
+        image: image-registry.openshift-image-registry.svc:5000/<projectname>/authors:latest
         ports:
         - containerPort: 3000
         livenessProbe:
