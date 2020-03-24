@@ -53,6 +53,8 @@ $ ROOT_FOLDER=$(pwd)
 
 4. Open the **OpenShift web console**
 
+    Note: During the Beta, you may need to allow security exceptions due to self signed certificates.
+
     ![Open the OpenShift web console](images/os-registry-03.png)
 
 ### Get the access token for the 'oc' CLI. 
